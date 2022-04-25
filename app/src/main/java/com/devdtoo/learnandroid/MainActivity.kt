@@ -19,20 +19,20 @@ import com.devdtoo.learnandroid.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    lateinit var broadcastReceiver: BroadcastReceiver
+    lateinit var receiver: BroadcastReceiver
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-//        initBroadcastReceiver()
-        var intent = getIntent()
-        var action = intent.action
+        initBroadcastReceiver()
+        val intent = intent
+        val action = intent.action
         val type = intent.type
         Log.d("MainActivity", "Action : $action")
         Log.d("MainActivity", "Type: $type")
         when {
             intent?.action == Intent.ACTION_SEND -> {
-                 if (intent.type?.startsWith("image/") == true) {
-                     Log.d("MainActivity", "Check Passed")
+                if (intent.type?.startsWith("image/") == true) {
+                    Log.d("MainActivity", "Check Passed")
                     handleSendImage(intent) // Handle single image being sent
                 }
             }
@@ -43,13 +43,9 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
-//        if (Intent.ACTION_SEND.equals(action) && type != null) {
-//            Log.d("MainActivity", "Check Passed")
-//            binding.imageView.setImageURI(intent.getParcelableExtra(Intent.EXTRA_STREAM))
-//        }
-
     }
+
+
     private fun handleSendImage(intent: Intent) {
         (intent.getParcelableExtra<Parcelable>(Intent.EXTRA_STREAM) as? Uri)?.let {
             // Update UI to reflect image being shared
@@ -58,15 +54,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initBroadcastReceiver() {
-        broadcastReceiver = BroadcastReceiverHandler()
-        val filter = IntentFilter(CONNECTIVITY_ACTION).apply {
-            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        receiver = BroadcastReceiverHandler()
+        IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
+            registerReceiver(receiver, it)
         }
-        registerReceiver(broadcastReceiver, filter)
-
-
     }
-
+    override fun onStart() {
+        super.onStart()
+    }
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(receiver)
+    }
 
 
 }
