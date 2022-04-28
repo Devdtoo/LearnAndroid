@@ -20,14 +20,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
 
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/*" />
-
             </intent-filter>
         </activity>
 
-        <service android:name=".services.ServiceHandler"/>
+        <service android:name=".services.LocalBoundService"/>
     </application>
 
 </manifest>
