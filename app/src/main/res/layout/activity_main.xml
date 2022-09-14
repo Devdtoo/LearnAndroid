@@ -25,14 +25,36 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/randon_btn"
+            android:id="@+id/clear_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="196dp"
-            android:text="Button"
-            app:layout_constraintEnd_toEndOf="@+id/randon_tv"
-            app:layout_constraintHorizontal_bias="0.52"
-            app:layout_constraintStart_toStartOf="@+id/randon_tv"
-            app:layout_constraintTop_toBottomOf="@+id/randon_tv" />
+            android:text="Clear"
+            app:layout_constraintBottom_toBottomOf="@+id/play_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/play_btn"
+            app:layout_constraintTop_toTopOf="@+id/play_btn" />
+
+        <Button
+            android:id="@+id/run_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Run"
+            app:layout_constraintBottom_toBottomOf="@+id/play_btn"
+            app:layout_constraintEnd_toStartOf="@+id/play_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/play_btn" />
+
+        <Button
+            android:id="@+id/play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:text="Play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/clear_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/run_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
