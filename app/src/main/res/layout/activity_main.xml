@@ -29,32 +29,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Clear"
-            app:layout_constraintBottom_toBottomOf="@+id/play_btn"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/periodic_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/play_btn"
-            app:layout_constraintTop_toTopOf="@+id/play_btn" />
+            app:layout_constraintStart_toEndOf="@+id/periodic_btn"
+            app:layout_constraintTop_toTopOf="@+id/periodic_btn" />
 
         <Button
-            android:id="@+id/run_btn"
+            android:id="@+id/one_time_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run"
-            app:layout_constraintBottom_toBottomOf="@+id/play_btn"
-            app:layout_constraintEnd_toStartOf="@+id/play_btn"
+            android:text="One Time Work"
+            app:layout_constraintBottom_toBottomOf="@+id/periodic_btn"
+            app:layout_constraintEnd_toStartOf="@+id/periodic_btn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/play_btn" />
+            app:layout_constraintTop_toTopOf="@+id/periodic_btn" />
 
         <Button
-            android:id="@+id/play_btn"
+            android:id="@+id/periodic_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="100dp"
-            android:text="Play"
+            android:text="Periodic Work"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/clear_btn"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/run_btn" />
+            app:layout_constraintStart_toEndOf="@+id/one_time_btn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
